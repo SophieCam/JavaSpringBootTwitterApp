@@ -16,7 +16,7 @@
 <div class="container">
     <div th:replace="fragments/navbar"></div>
     <div class="jumbotron col-md-8 col-md-offset-2">
-        <h2>New Tweet</h2><br/>
+        <h2><strong>New Tweet</strong></h2><br/>
         <form th:action="@{/tweets}" th:object="${tweet}" method="post" autocomplete="off">
             <div class="form-group">
                 <textarea rows="5" th:field="*{message}" placeholder="What's happening?" class="form-control"></textarea>
