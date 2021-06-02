@@ -12,6 +12,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data //lombark (no need for getters and setters and constructors)
@@ -54,5 +55,13 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @ManyToMany(mappedBy = "followers")
+    private List<User> following;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id"))
+    private List<User> followers;
 
 }

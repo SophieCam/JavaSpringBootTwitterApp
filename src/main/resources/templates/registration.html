@@ -14,6 +14,7 @@
 <body>
 
 <div class="container">
+    <div th:replace="fragments/navbar"></div>
     <h2>Sign up</h2>
     <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" >
         <div class="form-group">
@@ -39,6 +40,13 @@
         <div class="form-group">
             <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
         </div>
+        <div th:if="${success}" class="container">
+            <div th:text="${success}"></div>
+            <form th:action="@{~/login}" method="get">
+                <button class="btn btn-md btn-primary twitter-btn m-3" type="Submit" >Log In</button>
+            </form>
+        </div>
+
     </form>
 </div>
 
