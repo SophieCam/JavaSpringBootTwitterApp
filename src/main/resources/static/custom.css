@@ -2,3 +2,7 @@ body{
 background: rgb(210,213,228);
 background: radial-gradient(circle, rgba(210,213,228,1) 0%, rgba(70,213,252,1) 100%);
 }
+
+.btn:active{
+transform: translateY(4px);
+}

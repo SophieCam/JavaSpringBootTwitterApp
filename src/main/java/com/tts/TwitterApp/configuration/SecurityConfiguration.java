@@ -48,14 +48,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/console/**").permitAll()
-                .antMatchers("/login").permitAll()
+                .antMatchers("/console/**").permitAll() //.antMathers is a name in the system, similar to gradle
+                .antMatchers("/login").permitAll()  //below is granting access for everyone to the following endpoints
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/custom.js").permitAll()
                 .antMatchers("/custom.css").permitAll()
                 .antMatchers().hasAuthority("USER").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/login").failureUrl("/login?error=true")
+                .loginPage("/login").failureUrl("/login?error=true") //below only authorized users can access the following endpoints
                 .defaultSuccessUrl("/tweets")
                 .usernameParameter("username")
                 .passwordParameter("password")
